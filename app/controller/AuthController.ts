@@ -7,9 +7,9 @@ import { Controller } from 'egg';
 import { Paging } from "../format/Type";
 import { Validate } from "../utils/ReqValidate";
 import { ReturnResult } from "../utils/ReturnResult";
-import { BaseMod } from "../entity/mysql/auth/BaseMod";
-import { BaseRole } from "../entity/mysql/auth/BaseRole";
-import { BaseUser } from "../entity/mysql/auth/BaseUser";
+import BaseMod from "../entity/mysql/auth/BaseMod";
+import BaseRole from "../entity/mysql/auth/BaseRole";
+import BaseUser from "../entity/mysql/auth/BaseUser";
 
 /**
  * Created by wh on 2020/7/15
@@ -206,9 +206,9 @@ export default class AuthController extends Controller {
         await Validate.verifyAuth(ctx, "Mod");
         const mod: BaseMod = ctx.params;
         mod.updatedBy = ctx.user.id;
-        const users = await this.service.accountService.updateMod(mod);
+        const data = await this.service.accountService.updateMod(mod);
 
-        return ctx.body = ReturnResult.successData(users);
+        return ctx.body = ReturnResult.successData(data);
     }
     /**
      * 查询模块
@@ -246,9 +246,9 @@ export default class AuthController extends Controller {
     public async roles() {
         const { ctx } = this;
         await Validate.verifyAuth(ctx, "role");
-        const users = await this.service.accountService.roles();
+        const data = await this.service.accountService.roles();
 
-        return ctx.body = ReturnResult.successData(users);
+        return ctx.body = ReturnResult.successData(data);
     }
     /**
      * 获取角色页面
@@ -260,9 +260,9 @@ export default class AuthController extends Controller {
         await Validate.verifyAuth(ctx, "role");
         const paging: Paging = ctx.params;
         paging.condition = JSON.parse(paging.condition);
-        const users = await this.service.accountService.rolesPage(paging);
+        const data = await this.service.accountService.rolesPage(paging);
 
-        return ctx.body = ReturnResult.successData(users);
+        return ctx.body = ReturnResult.successData(data);
     }
     /**
      * 创建角色列表
@@ -274,9 +274,9 @@ export default class AuthController extends Controller {
         await Validate.verifyAuth(ctx, "role");
         const role: BaseRole = ctx.params;
         role.createdBy = ctx.user.id;
-        const users = await this.service.accountService.createRole(role);
+        const data = await this.service.accountService.createRole(role);
 
-        return ctx.body = ReturnResult.successData(users);
+        return ctx.body = ReturnResult.successData(data);
     }
     /**
      * 删除角色列表
@@ -287,9 +287,9 @@ export default class AuthController extends Controller {
         const { ctx } = this;
         await Validate.verifyAuth(ctx, "role");
         const role: BaseRole = ctx.params;
-        const users = await this.service.accountService.delectRole(role);
+        const data = await this.service.accountService.delectRole(role);
 
-        return ctx.body = ReturnResult.successData(users);
+        return ctx.body = ReturnResult.successData(data);
     }
     /**
      * 修改角色列表
@@ -301,9 +301,9 @@ export default class AuthController extends Controller {
         await Validate.verifyAuth(ctx, "role");
         const role: BaseRole = ctx.params;
         role.updatedBy = ctx.user.id;
-        const users = await this.service.accountService.updateRole(role);
+        const data = await this.service.accountService.updateRole(role);
 
-        return ctx.body = ReturnResult.successData(users);
+        return ctx.body = ReturnResult.successData(data);
     }
     /**
      * 获取角色详情模块列表
@@ -315,9 +315,9 @@ export default class AuthController extends Controller {
         await Validate.verifyAuth(ctx, "role");
         const role: BaseRole = ctx.params;
         Validate.isId(role.id);
-        const users = await this.service.accountService.roleMods(role);
+        const data = await this.service.accountService.roleMods(role);
 
-        return ctx.body = ReturnResult.successData(users);
+        return ctx.body = ReturnResult.successData(data);
     }
     /**
      * 获取系统操作日志
@@ -329,8 +329,8 @@ export default class AuthController extends Controller {
         const paging: Paging = ctx.params;
         Validate.isNumber(paging.page);
         paging.condition = JSON.parse(paging.condition);
-        const users = await this.service.accountService.systemLog(paging);
+        const data = await this.service.accountService.systemLog(paging);
 
-        return ctx.body = ReturnResult.successData(users);
+        return ctx.body = ReturnResult.successData(data);
     }
 }

@@ -6,7 +6,7 @@ import { QUEUE_OBJ_NAME, QUEUE_USER_ACTIVE } from '../config/BullConfig';
 import { TbLog } from '../format/Type';
 import { BullMQ } from '../utils/BullMq';
 import { DateFormat } from '../utils/DateFormat';
-import { BaseTpLog } from '../entity/mysql/log/BaseTpLog';
+import  BaseTpLog  from '../entity/mysql/log/BaseTpLog';
 
 /**
  * 用消息队列保存实体对象
@@ -58,20 +58,20 @@ class BullMqService {
      * @param obj 对象json
      */
     public async objImpl(obj: any) {
-        // 玩家操作日志
+        // 后台用户操作日志
         if (obj.data.objName === "tbLog") {
             let tbLogObj: TbLog = obj.data.tbLog;
             const type: any = { "GET": "查询", "POST": "新增", "PUT": "更新", "DELETE": "删除" };
             const tbLog: BaseTpLog = {
-                "userId": tbLogObj.userId ? "" : "", // 操作用户id
-                "username": tbLogObj.username ? "" : "", // 操作账户
+                "userId": tbLogObj.userId, // 操作用户id
+                "username": tbLogObj.username , // 操作账户
                 "createdTime": DateFormat.dateFormat(Date.now()), // 操作时间
-                "operationType": type[tbLogObj.operationType ? 1 : 1], // 查询、新增、删除、更新
-                "operationMod": tbLogObj.operationMod ? "" : "", // 操作地址
-                "ip": tbLogObj.ip ? "" : "", // 操作ip
+                "operationType": type[tbLogObj.operationType], // 查询、新增、删除、更新
+                "operationMod": tbLogObj.operationMod, // 操作地址
+                "ip": tbLogObj.ip, // 操作ip
             };
             // egg typeorm中可直接调用写入数据
-            const tpLogDao = getRepository(BaseTpLog);
+            const tpLogDao = getRepository(BaseTpLog,"mysql");
             await tpLogDao.save(tbLog);
         }
         // 客户端操作日志

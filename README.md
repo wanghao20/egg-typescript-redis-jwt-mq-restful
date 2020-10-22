@@ -1,3 +1,6 @@
+# dfs-ums-server
+
+
 ## 前序准备
 
 你需要在本地安装 [node](http://nodejs.org/) 和 [egg-reids](https://github.com/eggjs/egg-redis)在Base.ts内配置redis连接。本项目技术栈基于 [typescript](https://www.typescriptlang.org/)、[限流](https://github.com/koajs/ratelimit)、[BullMQ](https://github.com/OptimalBits/bull#uis)、[HyperLogLog](https://juejin.im/post/6844904097666039816) 、[redis分布式锁](https://redis.io/) 、[Joi](https://hapi.dev/module/joi/)(egg-Joi配置相对繁琐,项目是自己封装的) 和 [egg-typeorm](https://github.com/eggjs/egg-redis),[自动路由扫描:egg-router-util]
@@ -50,3 +53,15 @@ $ open http://127.0.0.1:9090/
 $ npm run tsc
 $ npm start
 ```
+
+egg-ts-typeorm 连接mongo在connect.js内修改源码
+for(let e of n){
+    if(e.options.type=="mysql"){
+        const o=await e.manager.query("select 1 + 1 as result");
+        o&&o.length&&2==+o[0].result&&t.logger.info(`[egg-typeorm] connection ${e.name} is ready`)
+    }
+    if(e.options.type=="mongodb"){
+        t.logger.info(`[egg-typeorm] connection ${e.name} is ready`)
+    }
+
+}};

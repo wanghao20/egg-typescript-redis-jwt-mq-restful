@@ -5,7 +5,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
  * @desc：操作记录
  */
 @Entity()
-export class BaseTpLog {
+export default class BaseTpLog {
     /**
      * id
      */

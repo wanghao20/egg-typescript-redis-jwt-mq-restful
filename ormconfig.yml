@@ -1,0 +1,5 @@
+mysql: # config.default.ts中对应的name
+  entitiesdir: "app/entity/mysql"
+
+mongodb: # 同上
+  entitiesdir: "app/entity/mongo"

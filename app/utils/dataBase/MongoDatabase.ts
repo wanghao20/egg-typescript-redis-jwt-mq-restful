@@ -1,4 +1,3 @@
-import { getConnection } from "typeorm";
 
 
 /**
@@ -11,7 +10,7 @@ export class MongoDatabase {
 	 * 获取数据库连接
 	 */
     public static getConnection() {
-        return getConnection("mysql");
+        // return getConnection("mysql");
     }
     // todo 自定义的方法使用redis分布式锁或者在数据库中开启事务
 }

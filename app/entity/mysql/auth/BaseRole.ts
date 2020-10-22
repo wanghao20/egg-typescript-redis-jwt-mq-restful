@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable } from "typeorm";
-import { BaseMod } from './BaseMod';
+import  BaseMod  from './BaseMod';
 
 /**
  * Created by wh on 2020/7/15
@@ -7,7 +7,7 @@ import { BaseMod } from './BaseMod';
  * @desc：角色
  */
 @Entity()
-export class BaseRole   {
+export default class BaseRole   {
 
     /**
      * id

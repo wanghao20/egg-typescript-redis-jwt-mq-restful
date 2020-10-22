@@ -5,34 +5,35 @@
  */
 
 export class BaseConfig {
-	/**
-	 * 服务器端口配置
-	 */
+    /**
+     * 服务器端口配置
+     */
     public static PORT = 9090;
-	/**
-	 * redis配置
-	 */
+    public static SERVE_HOST = "192.168.12.245";
+    /**
+     * redis配置
+     */
     // public static REDIS_HOST = "";
     public static REDIS_HOST = "127.0.0.1";
-	/**
-	 * redis端口配置
-	 */
+    /**
+     * redis端口配置
+     */
     public static REDIS_PORT = 6379;
-	/**
-	 * redis密码配置(需要在redisTool打开注释)
-	 */
+    /**
+     * redis密码配置(需要在redisTool打开注释)
+     */
     public static REDIS_PASSWORD = "123456";
-	/**
-	 * redis db配置(项目使用)
-	 */
+    /**
+     * redis db配置(项目使用)
+     */
     public static SYSTEM_DB = 1;
-	/**
-	 * redis db配置(MQ使用)
-	 */
+    /**
+     * redis db配置(MQ使用)
+     */
     public static BULLMQ_DB = 2;
-	/**
+    /**
          * token验证白名单Url
-	 */
+     */
     public static OPEN_URL = [
         "/auth/login",
         "/auth/insert",
@@ -47,23 +48,24 @@ export class BaseConfig {
      * 文件URL
      */
     public static OPEN_FILE_URL = "/common/download";
-	/**
+    /**
     * 记录日志Urld对应的记录名称
-	 */
-    public static LOG_URL:any = {
+     */
+    public static LOG_URL: any = {
         "/auth/user": "用户",
         "/auth/Mod": "模块",
         "/auth/role": "角色",
         "/game/game": "游戏",
+        "/cfg/cfg": "配置文件",
     };
     /**
      * 这里处理特殊返回没有状态码的Url地址打印时显示正常
      */
-    public static OPEN_LOG_URL ="/auth/captchaCode";
+    public static OPEN_LOG_URL = "/auth/captchaCode";
     /**
      * 1
      */
-    public static OPEN_LOG_URL1 ="/common/download/";
+    public static OPEN_LOG_URL1 = "/common/download/";
     /**
      * 新注册玩家默认权限id
      */

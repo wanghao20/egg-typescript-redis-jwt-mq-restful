@@ -5,11 +5,11 @@ import { Service } from 'egg';
 import { Paging } from "../format/Type";
 import { DateFormat } from "../utils/DateFormat";
 import { MysqlDatabase } from '../utils/dataBase/MysqlDatabase';
-import { BaseGame } from "../entity/mysql/game/Game";
+import BaseGame from "../entity/mysql/game/BaseGame";
 /**
  * Created by wh on 2020/7/15
  * author: wanghao
- * @desc：authService
+ * @desc：gameService
  */
 export default class GameService extends Service {
 
@@ -24,12 +24,19 @@ export default class GameService extends Service {
         return { "items": data[0], "total": Number(data[1][0].total) };
     }
     /**
+     * 获取游戏列表不分页
+     */
+    public async getGames() {
+        const data: any = await this.ctx.repo.mysql.game.BaseGame.find();
+        return data;
+    }
+    /**
      * 新增
      */
     public async createBaseGame(game: BaseGame) {
         game.id = uuidv4();
         game.createdTime = DateFormat.dateFormat(Date.now());
-        const data: any = await this.ctx.repo.Game.save(game);
+        const data: any = await this.ctx.repo.mysql.game.BaseGame.save(game);
 
         return data;
     }
@@ -39,7 +46,7 @@ export default class GameService extends Service {
     public async delectBaseGame(game: BaseGame) {
         game.updatedTime = DateFormat.dateFormat(Date.now());
         game.isDelete = 1;
-        const data: any = await this.ctx.repo.Game.save(game);
+        const data: any = await this.ctx.repo.mysql.game.BaseGame.save(game);
 
         return data;
     }
@@ -48,7 +55,7 @@ export default class GameService extends Service {
      */
     public async updateBaseGame(game: BaseGame) {
         game.updatedTime = DateFormat.dateFormat(Date.now());
-        const data: any = await this.ctx.repo.Game.save(game);
+        const data: any = await this.ctx.repo.mysql.game.BaseGame.save(game);
 
         return data;
     }

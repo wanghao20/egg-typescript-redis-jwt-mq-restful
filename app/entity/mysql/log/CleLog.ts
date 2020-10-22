@@ -5,7 +5,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
  * @desc：客户端操作记录Entity
  */
 @Entity()
-export class CltLog {
+export default class CltLog {
 	/**
 	 * id
 	 */

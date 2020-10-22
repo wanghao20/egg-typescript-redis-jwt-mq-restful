@@ -73,7 +73,7 @@ export class StaticStr {
 	/**
 	 * 注册错误提示
 	 */
-    public static INSERT_ERR_MSG = "用户已存在";
+    public static INSERT_ERR_MSG = "名称已存在";
 	/**
 	 * 获取等级贡献配置表ervice
 	 */

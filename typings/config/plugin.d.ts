@@ -17,7 +17,7 @@ import 'egg-view';
 import 'egg-jwt';
 import 'egg-cors';
 import 'egg-redis';
-import '@forsigner/egg-typeorm';
+import 'egg-ts-typeorm';
 import { EggPluginItem } from 'egg';
 declare module 'egg' {
   interface EggPlugin {

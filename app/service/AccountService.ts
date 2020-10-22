@@ -18,9 +18,9 @@ import { TokenConfig, Paging } from "../format/Type";
 import { DateFormat } from "../utils/DateFormat";
 import { VerifyException } from "../utils/Exceptions";
 import { MysqlDatabase } from '../utils/dataBase/MysqlDatabase';
-import { BaseMod } from "../entity/mysql/auth/BaseMod";
-import { BaseRole } from "../entity/mysql/auth/BaseRole";
-import { BaseUser } from "../entity/mysql/auth/BaseUser";
+import  BaseRole  from "../entity/mysql/auth/BaseRole";
+import  BaseUser  from "../entity/mysql/auth/BaseUser";
+import BaseMod from '../entity/mysql/auth/BaseMod';
 /**
  * Created by wh on 2020/7/15
  * author: wanghao
@@ -62,7 +62,7 @@ export default class AccountService extends Service {
         if (captchaCode !== val) {
             throw new VerifyException(StaticStr.ERR_CAPTCHA_CODE, StaticStr.ERR_CODE_DEFAULT);
         }
-        const user = await this.ctx.repo.BaseUser.findOne({ "name": userName, "isDelete": 0 });
+        const user = await this.ctx.repo.mysql.auth.BaseUser.findOne({ "name": userName, "isDelete": 0 });
         if (user === undefined) {
             throw new VerifyException(StaticStr.USERNAME_ERR_MSG, StaticStr.ERR_CODE_DEFAULT);
         }
@@ -82,8 +82,8 @@ export default class AccountService extends Service {
      * @param name 用户名称
      */
     public async info(id: string) {
-        const user: BaseUser = await this.ctx.repo.BaseUser.findOne({ "id": id, "isDelete": 0 });
-        const role: BaseRole = await this.ctx.repo.BaseRole.findOne({ "id": user.roles, "isDelete": 0 }, { "relations": ["mods"] });
+        const user: BaseUser = await this.ctx.repo.mysql.auth.BaseUser.findOne({ "id": id, "isDelete": 0 });
+        const role: BaseRole = await this.ctx.repo.mysql.auth.BaseRole.findOne({ "id": user.roles, "isDelete": 0 }, { "relations": ["mods"] });
         // 拿到对应权限mods信息
 
         return { "user": user, "mods": role.mods };
@@ -115,7 +115,7 @@ export default class AccountService extends Service {
      * 获取角色列表
      */
     public async roles() {
-        const data: any = await this.ctx.repo.BaseRole.find({ "isDelete": 0 });
+        const data: any = await this.ctx.repo.mysql.auth.BaseRole.find({ "isDelete": 0 });
 
         return data;
     }
@@ -125,10 +125,10 @@ export default class AccountService extends Service {
     public async createRole(role: BaseRole) {
         role.id = uuidv4();
         // 设置默认根模块权限
-        const mods: any = await this.ctx.repo.BaseMod.find({ "isDelete": 0 });
+        const mods: any = await this.ctx.repo.mysql.auth.BaseMod.find({ "isDelete": 0 });
         const mod = this.findRootId(mods);
         role.mods.push(mod);
-        const data: any = await this.ctx.repo.BaseRole.save(role);
+        const data: any = await this.ctx.repo.mysql.auth.BaseRole.save(role);
 
         return data;
     }
@@ -153,7 +153,7 @@ export default class AccountService extends Service {
      * create角色列表
      */
     public async updateRole(role: BaseRole) {
-        const data: any = await this.ctx.repo.BaseRole.save(role);
+        const data: any = await this.ctx.repo.mysql.auth.BaseRole.save(role);
 
         return data;
     }
@@ -162,7 +162,7 @@ export default class AccountService extends Service {
      */
     public async delectRole(role: BaseRole) {
         role.isDelete = 1;
-        const data: any = await this.ctx.repo.BaseRole.save(role);
+        const data: any = await this.ctx.repo.mysql.auth.BaseRole.save(role);
 
         return data;
     }
@@ -170,7 +170,7 @@ export default class AccountService extends Service {
      * 获取角色详情
      */
     public async roleMods(role: BaseRole) {
-        const data: any = await this.ctx.repo.BaseRole.findOne({ "id": role.id, "isDelete": 0 }, { "relations": ["mods"] });
+        const data: any = await this.ctx.repo.mysql.auth.BaseRole.findOne({ "id": role.id, "isDelete": 0 }, { "relations": ["mods"] });
 
         return data;
     }
@@ -190,13 +190,13 @@ export default class AccountService extends Service {
      */
     public async update(user: BaseUser) {
         // 验证用户名
-        const userVname = await this.ctx.repo.BaseUser.findOne({ "name": user.name, "isDelete": 0 });
+        const userVname = await this.ctx.repo.mysql.auth.BaseUser.findOne({ "name": user.name, "isDelete": 0 });
         if (userVname.name !== user.name) {
             throw new VerifyException(StaticStr.INSERT_ERR_MSG, StaticStr.ERR_CODE_DEFAULT);
         }
         user.updatedTime = DateFormat.dateFormat(Date.now());
         user.password = this.genPassword(user.password);
-        const data: any = await this.ctx.repo.BaseUser.save(user);
+        const data: any = await this.ctx.repo.mysql.auth.BaseUser.save(user);
 
         return data;
     }
@@ -206,17 +206,17 @@ export default class AccountService extends Service {
      */
     public async create(ctx: Context, user: BaseUser) {
         // 验证用户名
-        const userVname = await this.ctx.repo.BaseUser.findOne({ "name": user.name, "isDelete": 0 });
+        const userVname = await this.ctx.repo.mysql.auth.BaseUser.findOne({ "name": user.name, "isDelete": 0 });
         if (userVname) {
             throw new VerifyException(StaticStr.INSERT_ERR_MSG, StaticStr.ERR_CODE_DEFAULT);
         }
         const uid = uuidv4();
-        const role: BaseRole = await ctx.repo.BaseRole.findOne({ "id": user.roles });
+        const role: BaseRole = await ctx.repo.mysql.auth.BaseRole.findOne({ "id": user.roles });
         user.createdTime = DateFormat.dateFormat(Date.now());
         user.rolesName = role.roleName;
         user.id = uid;
         user.password = this.genPassword(user.password);
-        const data: any = await this.ctx.repo.BaseUser.save(user);
+        const data: any = await this.ctx.repo.mysql.auth.BaseUser.save(user);
 
         return data;
     }
@@ -227,7 +227,7 @@ export default class AccountService extends Service {
     public async delect(user: BaseUser) {
         user.createdTime = DateFormat.dateFormat(Date.now());
         user.isDelete = 1;
-        const data: any = await this.ctx.repo.BaseUser.save(user);
+        const data: any = await this.ctx.repo.mysql.auth.BaseUser.save(user);
 
         return data;
     }
@@ -254,7 +254,7 @@ export default class AccountService extends Service {
     public async validEmailCode(ctx: Context) {
         const redis = this.app.redis.get("db1");
         // 验证邮箱是否存在
-        const user: BaseUser = await ctx.repo.BaseUser.findOne({ "email": ctx.params.email, "isDelete": 0 });
+        const user: BaseUser = await ctx.repo.mysql.auth.BaseUser.findOne({ "email": ctx.params.email, "isDelete": 0 });
         if (user === undefined) {
             throw new VerifyException(StaticStr.ERR_EMAILCO_CODE, StaticStr.ERR_CODE_DEFAULT);
         }
@@ -268,7 +268,7 @@ export default class AccountService extends Service {
         user.password = this.genPassword(ctx.params.password);
         user.createdTime = DateFormat.dateFormat(Date.now());
         // 保存到数据库
-        await ctx.repo.BaseUser.save(user);
+        await ctx.repo.mysql.auth.BaseUser.save(user);
         const token = this.getToken(user);
 
         return { "accessToken": token, "id": user.id };
@@ -280,7 +280,7 @@ export default class AccountService extends Service {
     public async getEmailCode(ctx: Context) {
         const redis = this.app.redis.get("db1");
         // 验证邮箱是否存在
-        const user: BaseUser = await ctx.repo.BaseUser.findOne({ "email": ctx.params.email, "isDelete": 0 });
+        const user: BaseUser = await ctx.repo.mysql.auth.BaseUser.findOne({ "email": ctx.params.email, "isDelete": 0 });
         if (user === undefined) {
             throw new VerifyException(StaticStr.ERR_EMAILCO2_CODE, StaticStr.ERR_CODE_DEFAULT);
         }
@@ -302,12 +302,12 @@ export default class AccountService extends Service {
      */
     public async insert(ctx: Context, user: BaseUser) {
         // 验证用户名
-        const userVname = await ctx.repo.BaseUser.findOne({ "name": user.name, "isDelete": 0 });
+        const userVname = await ctx.repo.mysql.auth.BaseUser.findOne({ "name": user.name, "isDelete": 0 });
         if (userVname) {
             throw new VerifyException(StaticStr.INSERT_ERR_MSG, StaticStr.ERR_CODE_DEFAULT);
         }
         // 验证邮箱是否使用
-        const user1: BaseUser = await ctx.repo.BaseUser.findOne({ "email": user.email, "isDelete": 0 });
+        const user1: BaseUser = await ctx.repo.mysql.auth.BaseUser.findOne({ "email": user.email, "isDelete": 0 });
         if (user1) {
             throw new VerifyException(StaticStr.ERR_EMAILCO_CODE, StaticStr.ERR_CODE_DEFAULT);
         }
@@ -318,7 +318,7 @@ export default class AccountService extends Service {
         user.createdTime = DateFormat.dateFormat(Date.now());
         user.password = this.genPassword(user.password);
         // 保存到数据库
-        await ctx.repo.BaseUser.save(user);
+        await ctx.repo.mysql.auth.BaseUser.save(user);
         const token = this.getToken(user);
 
         return { "accessToken": token, "id": uid };
@@ -332,7 +332,7 @@ export default class AccountService extends Service {
         const uid = uuidv4();
         mod.id = uid;
         mod.createdTime = Date.now().toString();
-        const data: any = await this.ctx.repo.BaseMod.save(mod);
+        const data: any = await this.ctx.repo.mysql.auth.BaseMod.save(mod);
 
         return data;
     }
@@ -342,7 +342,7 @@ export default class AccountService extends Service {
      */
     public async updateMod(mod: BaseMod) {
         mod.updatedTime = Date.now().toString();
-        const data: any = await this.ctx.repo.BaseMod.save(mod);
+        const data: any = await this.ctx.repo.mysql.auth.BaseMod.save(mod);
 
         return data;
     }
@@ -350,7 +350,7 @@ export default class AccountService extends Service {
      * 查询模块
      */
     public async getMod() {
-        const data: any = await this.ctx.repo.BaseMod.find({ "isDelete": 0 });
+        const data: any = await this.ctx.repo.mysql.auth.BaseMod.find({ "isDelete": 0 });
 
         return data;
     }
@@ -358,7 +358,7 @@ export default class AccountService extends Service {
      * 删除模块
      */
     public async deleteMod(mod: BaseMod) {
-        const data: any = await this.ctx.repo.BaseMod.delete(mod);
+        const data: any = await this.ctx.repo.mysql.auth.BaseMod.delete(mod);
 
         return data;
     }

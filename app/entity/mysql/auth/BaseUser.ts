@@ -7,7 +7,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
  * @desc：用户
  */
 @Entity()
-export class BaseUser {
+export default class BaseUser {
 
     /**
      * id

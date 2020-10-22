@@ -1,13 +1,12 @@
-import { Entity, ManyToMany, Column, PrimaryGeneratedColumn } from "typeorm";
-
-import  BaseRole  from "./BaseRole";
+import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 
 /**
- * Created by wh on 2020/3/3
- * @desc：模块实体
+ * Created by wh on 2020/9/4
+ * author: wanghao
+ * @desc：游戏实体
  */
 @Entity()
-export default  class BaseMod {
+export default class BaseGame {
 
     /**
      * id
@@ -44,51 +43,59 @@ export default  class BaseMod {
     @Column()
     public isDelete: number;
     /**
-     * 父节点id
+     * gameId
      */
     @Column()
-    public pId: string;
+    public gameId: string;
     /**
-     * 父节点名称
-     */
-    @Column()
-    public pName: string;
-    /**
-     * 模块名称
-     */
-    @Column()
-    public label: string;
-    /**
-     * 模块路由地址
-     */
-    @Column()
-    public modPath: string;
-    /**
-     * 模块标题
-     */
-    @Column()
-    public modtTitle: string;
-    /**
-     * vueComponent对应地址
-     */
-    @Column()
-    public component: string;
-    /**
-     * icon
+     * lcon
      */
     @Column()
     public icon: string;
-
     /**
-     * 是否禁止操作,0否1:是
+     * 产品名称
      */
     @Column()
-    public disabled: number;
-
+    public gameName: string;
     /**
-     * 多对多
+     * 描述
      */
-    @ManyToMany(() => BaseRole, (role) => role.mods)
-    public roles: BaseRole[];
+    @Column()
+    public doc: string;
+    /**
+     * appid
+     */
+    @Column()
+    public appid: string;
+    /**
+     * Ftp路径(游戏路径)
+     */
+    @Column()
+    public gamePath: string;
+    /**
+     * 游戏配置
+     */
+    @Column()
+    public config: string;
+    /**
+     * 游戏版本
+     */
+    @Column()
+    public version: string;
+    /**
+     * 当前状态
+     */
+    @Column()
+    public status: number;
+    /**
+     * 公司团队
+     */
+    @Column()
+    public team: string;
+    /**
+     * 人员安排
+     */
+    @Column()
+    public staffGear: string;
 
 }

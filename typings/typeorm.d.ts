@@ -1,33 +1,61 @@
-import 'egg'
-import { Repository, Connection } from 'typeorm'
-import BaseMod from '../app/entity/mysql/auth/BaseMod'
-import BaseRole from '../app/entity/mysql/auth/BaseRole'
-import BaseUser from '../app/entity/mysql/auth/BaseUser'
-import Game from '../app/entity/mysql/game/Game'
-import BaseTpLog from '../app/entity/mysql/log/BaseTpLog'
-import CleLog from '../app/entity/mysql/log/CleLog'
-import Seal from '../app/entity/mysql/system/Seal'
+// This file is created by egg-ts-helper@1.25.8
+// Do not modify this file!!!!!!!!!
 
+import 'egg';
+import { Repository, Connection, TreeRepository } from 'typeorm';
+import AppEntityMysqlauthBaseMod from '../app/entity/mysql/auth/BaseMod';
+import AppEntityMysqlauthBaseRole from '../app/entity/mysql/auth/BaseRole';
+import AppEntityMysqlauthBaseUser from '../app/entity/mysql/auth/BaseUser';
+import AppEntityMysqlgameBaseGame from '../app/entity/mysql/game/BaseGame';
+import AppEntityMysqllogBaseTpLog from '../app/entity/mysql/log/BaseTpLog';
+import AppEntityMysqllogCleLog from '../app/entity/mysql/log/CleLog';
+import AppEntityMysqlsystemSeal from '../app/entity/mysql/system/Seal';
+import AppEntityMongoCfg from '../app/entity/mongo/Cfg';
 declare module 'egg' {
   interface Context {
-    connection: Connection
     entity: {
-      BaseMod: any
-      BaseRole: any
-      BaseUser: any
-      Game: any
-      BaseTpLog: any
-      CleLog: any
-      Seal: any
+      mysql: {
+        auth: {
+          BaseMod: typeof AppEntityMysqlauthBaseMod
+          BaseRole: typeof AppEntityMysqlauthBaseRole
+          BaseUser: typeof AppEntityMysqlauthBaseUser
+        }
+        game: {
+          BaseGame: typeof AppEntityMysqlgameBaseGame
+        }
+        log: {
+          BaseTpLog: typeof AppEntityMysqllogBaseTpLog
+          CleLog: typeof AppEntityMysqllogCleLog
+        }
+        system: {
+          Seal: typeof AppEntityMysqlsystemSeal
+        }
+      }
+      mongodb: {
+        Cfg: typeof AppEntityMongoCfg
+      }
     }
     repo: {
-      BaseMod: Repository<BaseMod>
-      BaseRole: Repository<BaseRole>
-      BaseUser: Repository<BaseUser>
-      Game: Repository<Game>
-      BaseTpLog: Repository<BaseTpLog>
-      CleLog: Repository<CleLog>
-      Seal: Repository<Seal>
+      mysql: {
+        auth: {
+          BaseMod: Repository<AppEntityMysqlauthBaseMod>
+          BaseRole: Repository<AppEntityMysqlauthBaseRole>
+          BaseUser: Repository<AppEntityMysqlauthBaseUser>
+        }
+        game: {
+          BaseGame: Repository<AppEntityMysqlgameBaseGame>
+        }
+        log: {
+          BaseTpLog: Repository<AppEntityMysqllogBaseTpLog>
+          CleLog: Repository<AppEntityMysqllogCleLog>
+        }
+        system: {
+          Seal: Repository<AppEntityMysqlsystemSeal>
+        }
+      }
+      mongodb: {
+        Cfg: Repository<AppEntityMongoCfg>
+      }
     }
   }
 }

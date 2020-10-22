@@ -5,7 +5,7 @@ import { isUndefined } from "util";
 import { Context } from 'egg';
 
 import { StaticStr } from "../config/StaticStr";
-import { BaseRole } from "../entity/mysql/auth/BaseRole";
+import  BaseRole  from "../entity/mysql/auth/BaseRole";
 
 import { VerifyException } from "./Exceptions";
 /**
@@ -126,7 +126,7 @@ export class Validate {
      * @param moduleURL 模块地址(需要和设置模块里面的地址一样)
      */
     public static async verifyAuth(ctx: Context, moduleURL: string) {
-        const data: BaseRole = await ctx.repo.BaseRole.findOne({ "id": ctx.user.roles }, { "relations": ["mods"] });
+        const data: BaseRole = await ctx.repo.mysql.auth.BaseRole.findOne({ "id": ctx.user.roles }, { "relations": ["mods"] });
         for (let i = 0; i < data.mods.length; i++) {
             if (data.mods[i].modPath === moduleURL) {
                 return true;

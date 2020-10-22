@@ -2,7 +2,7 @@ import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
 
 import { BaseConfig } from '../app/config/Base';
 import { JWT_SECRET } from '../app/config/Constants';
-import { mysqlConfig } from '../app/config/environments';
+import { mongodbConfig, mysqlConfig } from '../app/config/environments';
 export default (appInfo: EggAppInfo) => {
     const config = {} as PowerPartial<EggAppConfig>;
     //从框架/插件覆盖配置
@@ -32,7 +32,7 @@ export default (appInfo: EggAppInfo) => {
         listen: {
             path: '',
             port: BaseConfig.PORT,
-            hostname: BaseConfig.REDIS_HOST,
+            hostname: BaseConfig.SERVE_HOST,
         }
     };
     // redis
@@ -53,7 +53,12 @@ export default (appInfo: EggAppInfo) => {
         }
 
     };
-    config.typeorm = mysqlConfig;
+    config.typeorm = {
+        clients: [
+            mysqlConfig,
+            mongodbConfig
+        ]
+    };
     // 返回配置将合并到EggAppConfig
     return {
         ...config,

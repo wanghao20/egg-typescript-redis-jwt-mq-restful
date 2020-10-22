@@ -5,7 +5,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
  * @desc：封号数据实体
  */
 @Entity()
-export class BaseSeal {
+export default class BaseSeal {
 
 
     /**
