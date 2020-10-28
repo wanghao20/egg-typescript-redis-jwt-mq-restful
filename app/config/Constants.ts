@@ -38,13 +38,13 @@ export const emailCfg = {
     "secureConnection": true, // 使用 SSL
     "port": 465, // SMTP 端口
     "auth": {
-        "user": "506255207@qq.com", // generated ethereal user
-        "pass": "bmblrdabbwkebjgh", // generated ethereal password
+        "user": "00@qq.com", // generated ethereal user
+        "pass": "00", // generated ethereal password
     },
 };
 export const sendMailCfg = (email: string, code: string) => {
     return {
-        "from": `"DF ?" <506255207@qq.com>"`, // 发送方
+        "from": `"DF ?" <00@qq.com>"`, // 发送方
         "to": email, // 接收方
         "subject": "DF", // Subject line
         "text": "找回密码时使用", // plain text body
