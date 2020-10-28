@@ -166,7 +166,7 @@ export default class AuthController extends Controller {
      * 获取Email验证码
      * @param ctx koa中间件
      */
-    @Get("/GetEmailCode")
+    @Get("/getEmailCode")
     public async GetEmailCode() {
         const { ctx } = this;
         Validate.isEmail(ctx.params.email);

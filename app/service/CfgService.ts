@@ -10,6 +10,8 @@ import { StaticStr } from '../config/StaticStr';
 import { DateFormat } from "../utils/DateFormat";
 import { VerifyException } from '../utils/Exceptions';
 import Cfg from '../entity/mongo/Cfg';
+import { CFG_KEY } from '../config/Constants';
+import { encryption } from '../utils/encryption';
 /**
  * Created by wh on 2020/7/15
  * author: wanghao
@@ -97,7 +99,7 @@ export default class CfgService extends Service {
             filePath = path.resolve(__dirname, `../../public/servecfgFile/${cfg.gameId}/${cfg.cfgName}.json`);
         } else {
             // 客户端配置
-            filePath = path.resolve(__dirname, `../../public/servecfgFile/${cfg.gameId}/${cfg.cfgName}.json`);
+            filePath = path.resolve(__dirname, `../../public/clientCfgFile/${cfg.gameId}/${cfg.cfgName}.json`);
 
             // 判断是否压缩合并
             if (cfg.merge === 1) {
@@ -109,12 +111,12 @@ export default class CfgService extends Service {
                 });
                 // 文件内容:{配置名称1:配置值1,配置名称2:配置值2}
                 content = JSON.stringify(content)
-                filePath = path.resolve(__dirname, `../../public/servecfgFile/${cfg.gameId}/all_cfgs.txt`);
+                filePath = path.resolve(__dirname, `../../public/clientCfgFile/${cfg.gameId}/all_cfgs.txt`);
 
             }
             // 判断是否加密
             if (cfg.encryption === 1) {
-                // todo 和App端配合设置加密保存
+                content = encryption.aesEncrypt(content,CFG_KEY)
             }
         }
         try {

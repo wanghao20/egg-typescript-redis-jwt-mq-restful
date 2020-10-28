@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 22/09/2020 14:31:25
+ Date: 28/10/2020 11:32:49
 */
 
 SET NAMES utf8mb4;
@@ -45,9 +45,9 @@ CREATE TABLE `base_game`  (
 -- ----------------------------
 -- Records of base_game
 -- ----------------------------
-INSERT INTO `base_game` VALUES ('0850a4c2-5949-4723-86be-0b63dc4584f3', '', '1234', 'ojlbfd6pug7.jpg', '菊花', '打发的掉分爱迪生发的安抚打算', 'test', '', '1.0', 0, 'test', '特提示', 0, 'a7aa7e57-3a06-431c-b4a2-bef6e34e3064', '2020-09-22 11:34:43', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '2020-09-08 20:33:08');
-INSERT INTO `base_game` VALUES ('7da375a8-5c4d-477d-becb-4cde63238172', '', '23414', 'wkltgexprvi.jpg', '微信小游戏', '测试写入,图标和配置没有上传', 'root/path', '', '0.01', 1, '测试团队', '负责人：王五；策划：卢凯；开发：史蒂夫；美术：姜山', 0, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '2020-09-22 11:34:53', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '2020-09-07 16:12:01');
-INSERT INTO `base_game` VALUES ('ca7e5982-d153-46c5-8adb-bbf676237288', '', '', 'ejqslw5372d.jpg', '测试', '', '', '', '', 3, '', '', 0, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '2020-09-22 11:35:03', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '2020-09-07 14:09:41');
+INSERT INTO `base_game` VALUES ('0850a4c2-5949-4723-86be-0b63dc4584f3', '', '6785', '3e3q5posci.jpg', '山海经-鲲鹏', '打发的掉分爱迪生发的安抚打算', 'test', '', '1.0', 0, 'test', '特提示', 0, 'a7aa7e57-3a06-431c-b4a2-bef6e34e3064', '2020-10-19 10:57:08', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '2020-09-08 20:33:08');
+INSERT INTO `base_game` VALUES ('7da375a8-5c4d-477d-becb-4cde63238172', '', '6784', 'vpl88dgigj.jpg', '微信小游戏', '测试写入,图标和配置没有上传', 'root/path', '', '0.01', 1, '测试团队', '负责人：王五；策划：卢凯；开发：史蒂夫；美术：姜山', 0, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '2020-10-19 10:57:21', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '2020-09-07 16:12:01');
+INSERT INTO `base_game` VALUES ('ca7e5982-d153-46c5-8adb-bbf676237288', '', '6783', '4rcfbk55883.jpg', '测试', '', '', '', '', 3, '', '', 0, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '2020-10-19 10:57:33', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '2020-09-07 14:09:41');
 
 -- ----------------------------
 -- Table structure for base_mod
@@ -58,7 +58,7 @@ CREATE TABLE `base_mod`  (
   `pId` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '父节点id',
   `pName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '父节点名称',
   `label` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '模块名称',
-  `icon` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'icon',
+  `icon` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'icon',
   `modPath` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '模块地址',
   `modtTitle` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '模块标题',
   `component` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'vueComponent对应地址',
@@ -76,32 +76,25 @@ CREATE TABLE `base_mod`  (
 -- ----------------------------
 INSERT INTO `base_mod` VALUES ('0', NULL, NULL, '根', NULL, NULL, NULL, NULL, 0, 1, '', NULL, NULL, NULL);
 INSERT INTO `base_mod` VALUES ('08591bd4-f5c3-4084-ab1e-82cd4a622bba', 'fde7c1bc-7fb3-45d1-812c-430abb15c0c5', 'cdn应急刷新', 'cdn应急刷新', 'el-icon-refresh', 'cdn', 'cdn应急刷新', 'dashboard/index.vue', 0, 0, '1599530669917', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
-INSERT INTO `base_mod` VALUES ('0a9814f6-b448-4bf5-998d-46d82dff5ae1', 'd14be607-3081-43ad-9331-326ea7e97c35', '封号系统', '封号系统', 'el-icon-lock', 'seal', '封号系统', 'system/seal.vue', 0, 0, '1600073686599', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1600073722326');
+INSERT INTO `base_mod` VALUES ('0a9814f6-b448-4bf5-998d-46d82dff5ae1', 'd14be607-3081-43ad-9331-326ea7e97c35', '封号系统', '封号系统', 'el-icon-lock', 'seal', '封号系统', 'seal/seal.vue', 0, 0, '1600073686599', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1603107941953');
 INSERT INTO `base_mod` VALUES ('12a90106-8221-4731-9147-ab7d66a15f74', '0', '根', '主页', 'el-icon-house', '/dashboard', '主页', 'Layout', 0, 0, '1599136206538', NULL, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1599616477501');
-INSERT INTO `base_mod` VALUES ('1d1241e1-13af-47e9-9bfc-4d16fb0ebeeb', 'afac9d03-d6c5-4173-ac57-fc60458a83d2', '服务器信息', '服务器信息', 'el-icon-monitor', 'serves', '服务器信息', 'dashboard/index.vue', 0, 0, '1600163436697', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
-INSERT INTO `base_mod` VALUES ('23697681-b0f7-4505-b72b-d97bf400e852', 'b841a791-5512-43a4-91ba-8945ddd82e2f', '统计', '大盘数据', 'el-icon-s-marketing', 'allData', '大盘数据', 'dashboard/index.vue', 0, 0, '1600162442421', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1600162451782');
+INSERT INTO `base_mod` VALUES ('14b25a1f-8a96-4d41-94ec-28b40d4a5f2d', '724ebb37-2d68-4fe9-b4dd-479c61607a53', '配置管理', ' 配置管理', 'el-icon-s-operation', 'cfg', ' 配置管理', 'cfg/cfg.vue', 0, 0, '1601278133564', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
 INSERT INTO `base_mod` VALUES ('243c05d8-d9dd-43d4-9015-30964b828da5', '94190e42-d799-40b7-846d-05abe234bb5b', '系统管理', '用户管理', 'el-icon-user-solid', 'user', '用户管理', 'auth/users.vue', 0, 0, '', NULL, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1599567957553');
-INSERT INTO `base_mod` VALUES ('267c847b-764b-4908-adbe-7d71ade036d0', 'afac9d03-d6c5-4173-ac57-fc60458a83d2', '服务器信息', '数据库信息', 'el-icon-coin', 'dataBase', '数据库信息', 'dashboard/index.vue', 0, 0, '1600163690712', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
 INSERT INTO `base_mod` VALUES ('3', '94190e42-d799-40b7-846d-05abe234bb5b', '系统管理', '模块管理', 'el-icon-menu', 'Mod', '模块管理', 'auth/modMgmt.vue', 0, 0, '', NULL, NULL, NULL);
 INSERT INTO `base_mod` VALUES ('34234', '12a90106-8221-4731-9147-ab7d66a15f74', '主页', '主页', 'el-icon-house', 'dashboard', '主页', 'dashboard/index.vue', 0, 0, '1599136206538', NULL, NULL, NULL);
 INSERT INTO `base_mod` VALUES ('52566270-28c0-47d6-8d38-2ef6d06da1aa', '94190e42-d799-40b7-846d-05abe234bb5b', '系统管理', '角色权限', 'el-icon-lock', 'role', '角色权限', 'auth/role.vue', 0, 0, '', NULL, NULL, NULL);
-INSERT INTO `base_mod` VALUES ('756b87d3-9ec4-46fd-b64f-0c7862eb811e', 'afac9d03-d6c5-4173-ac57-fc60458a83d2', '服务器信息', 'Redis信息', 'el-icon-cpu', 'redis', 'Redis信息', 'dashboard/index.vue', 0, 0, '1600163604130', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
+INSERT INTO `base_mod` VALUES ('724ebb37-2d68-4fe9-b4dd-479c61607a53', '0', '根', '配置管理', 'el-icon-s-operation', '/cfg', '配置管理', 'Layout', 0, 0, '1601278088026', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
 INSERT INTO `base_mod` VALUES ('852ac375-11b5-4624-8b38-6daaf7476477', '0', '根', 'app热更新管理', 'd', '/hotUpdate', 'app热更新管理', 'Layout', 0, 0, '1599531431607', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1599531514459');
 INSERT INTO `base_mod` VALUES ('94190e42-d799-40b7-846d-05abe234bb5b', '0', '根', '系统管理', 'el-icon-s-tools', '/system', '系统管理', 'Layout', 0, 0, '1599136206539', NULL, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1599567953661');
 INSERT INTO `base_mod` VALUES ('982d83ec-9bb4-4b5e-86b9-27e0cfb4fcda', 'a06bce44-e4a4-43af-a082-0b12b6572401', '游戏管理', '游戏配置', 'el-icon-s-operation', '/config', '游戏配置', 'game/config.vue', 0, 0, '1599482680394', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1600070288238');
-INSERT INTO `base_mod` VALUES ('a06bce44-e4a4-43af-a082-0b12b6572401', '0', '根', '游戏管理', 'el-icon-s-grid', '/game', '游戏管理', 'Layout', 0, 0, '1599136206540', '1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1600070164545');
-INSERT INTO `base_mod` VALUES ('a5f1aeff-1c0d-4738-bd07-c14f5882e02e', 'b841a791-5512-43a4-91ba-8945ddd82e2f', '统计', '红包提现', 'el-icon-data-analysis', 'red', '红包提现', 'dashboard/index.vue', 0, 0, '1600162761308', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
-INSERT INTO `base_mod` VALUES ('afac9d03-d6c5-4173-ac57-fc60458a83d2', '0', '根', '服务器信息', 'el-icon-odometer', '/serve', '服务器信息', 'Layout', 0, 0, '1599136206538', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1600163048245');
+INSERT INTO `base_mod` VALUES ('a06bce44-e4a4-43af-a082-0b12b6572401', '0', '根', '游戏管理', 'el-icon-s-grid', '/game', '游戏管理', 'Layout', 0, 0, '1599205735666', '1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1600070164545');
 INSERT INTO `base_mod` VALUES ('b0158ff5-642d-4547-8a2d-d957ac029032', '0', '根', '系统操作记录', 'el-icon-s-order', '/systemLog', '系统操作记录', 'Layout', 0, 0, '1599483092760', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1600070230124');
 INSERT INTO `base_mod` VALUES ('b5b4d66a-c682-401f-82f3-131429588225', '0', '根', '预警设置', 'el-icon-warning', '/warn', '预警设置', 'Layout', 0, 0, '1599530767853', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1599530783948');
-INSERT INTO `base_mod` VALUES ('b841a791-5512-43a4-91ba-8945ddd82e2f', '0', '根', '统计', 'el-icon-s-data', '/stast', '统计', 'Layout', 0, 0, '1599136206541', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1600162840448');
 INSERT INTO `base_mod` VALUES ('b9a7c2f4-3aec-4cf7-86cd-2e77ad2f8285', '852ac375-11b5-4624-8b38-6daaf7476477', 'app热更新管理', 'app热更新管理', 'el-icon-loading', 'hotUpdata', 'app热更新管理', 'dashboard/index.vue', 0, 0, '1599531498011', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
 INSERT INTO `base_mod` VALUES ('bf2265b6-317f-4108-8d50-a8046b3718d0', 'b0158ff5-642d-4547-8a2d-d957ac029032', '系统操作记录', '后台操作记录', 'el-icon-s-order', 'syatemLog', '后台操作记录', 'log/systemLog.vue', 0, 0, '1599483151675', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1599532398424');
 INSERT INTO `base_mod` VALUES ('bfbc56ae-0b61-4194-b026-ef42c58678c9', 'a06bce44-e4a4-43af-a082-0b12b6572401', '游戏管理', '游戏列表', 'el-icon-s-unfold', 'game', '游戏列表', 'game/games.vue', 0, 0, '1599205945504', '1', '', '');
 INSERT INTO `base_mod` VALUES ('d14be607-3081-43ad-9331-326ea7e97c35', '0', '根', '封号系统', 'el-icon-lock', '/seal', '封号系统', 'Layout', 0, 0, '1599530294071', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1600073729290');
-INSERT INTO `base_mod` VALUES ('edb0c55d-84bf-43bf-a5bf-c901a1c7924d', 'b841a791-5512-43a4-91ba-8945ddd82e2f', '统计', '视频统计', 'el-icon-video-play', 'vid', '视频统计', 'dashboard/index.vue', 0, 0, '1600162504017', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
 INSERT INTO `base_mod` VALUES ('f1eb72e2-5440-4b65-a9f8-37a329f25db2', 'b5b4d66a-c682-401f-82f3-131429588225', '预警设置', '预警设置', 'el-icon-warning', 'wran', '预警设置', 'dashboard/index.vue', 0, 0, '1599531237378', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
-INSERT INTO `base_mod` VALUES ('f67e0f47-de4f-4878-aa1e-1a6e4feb754f', 'b841a791-5512-43a4-91ba-8945ddd82e2f', '统计', '留存统计', 'el-icon-data-line', 'reten', '留存统计', 'dashboard/index.vue', 0, 0, '1600162631399', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
 INSERT INTO `base_mod` VALUES ('fde7c1bc-7fb3-45d1-812c-430abb15c0c5', '0', '根', 'cdn应急刷新', 'el-icon-refresh', '/cdn', 'cdn应急刷新', 'Layout', 0, 0, '1599530641463', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '');
 
 -- ----------------------------
@@ -128,6 +121,26 @@ INSERT INTO `base_role` VALUES ('1a17e1ce-f877-46b3-a1ba-882ff1441ba0', '访客'
 INSERT INTO `base_role` VALUES ('b6363d60-71aa-4489-b784-4effa01dffd2', '访客', NULL, 0, '', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1');
 
 -- ----------------------------
+-- Table structure for base_seal
+-- ----------------------------
+DROP TABLE IF EXISTS `base_seal`;
+CREATE TABLE `base_seal`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `createdTime` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `createdBy` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `updatedTime` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `updatedBy` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `isDelete` int(0) NOT NULL,
+  `gameId` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `openId` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `userId` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `userName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `isSeal` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
 -- Table structure for base_tp_log
 -- ----------------------------
 DROP TABLE IF EXISTS `base_tp_log`;
@@ -143,7 +156,7 @@ CREATE TABLE `base_tp_log`  (
   UNIQUE INDEX `id`(`id`) USING BTREE,
   FULLTEXT INDEX `ft_index2`(`username`, `operationType`, `operationMod`) WITH PARSER `ngram`,
   FULLTEXT INDEX `ft_name`(`username`) WITH PARSER `ngram`
-) ENGINE = MyISAM AUTO_INCREMENT = 347 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = MyISAM AUTO_INCREMENT = 321 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of base_tp_log
@@ -410,86 +423,60 @@ INSERT INTO `base_tp_log` VALUES (263, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '
 INSERT INTO `base_tp_log` VALUES (264, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 15:52:36', '更新', '用户', '::ffff:192.168.12.245');
 INSERT INTO `base_tp_log` VALUES (265, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:01:24', '查询', '用户', '::ffff:192.168.12.245');
 INSERT INTO `base_tp_log` VALUES (266, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:01:41', '查询', '用户', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (267, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:23:18', '查询', '用户', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (268, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:23:56', '查询', '游戏', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (269, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:24:05', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (270, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:24:48', '查询', '游戏', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (271, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:25:27', '查询', '用户', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (272, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:27:17', '查询', '游戏', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (273, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:30:35', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (274, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:31:35', '新增', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (275, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:31:43', '更新', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (276, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:31:43', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (277, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:31:46', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (278, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:31:50', '更新', '角色', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (279, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:31:52', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (280, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:32:26', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (281, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:33:16', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (282, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:33:51', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (283, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:34:12', '更新', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (284, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:34:12', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (285, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:34:15', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (286, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:34:18', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (287, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:43:07', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (288, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:43:10', '删除', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (289, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:48:30', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (290, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:48:38', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (291, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:49:22', '查询', '游戏', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (292, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 16:49:27', '查询', '用户', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (293, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 17:11:35', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (294, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 17:11:36', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (295, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 17:11:38', '查询', '用户', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (296, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 17:11:38', '查询', '角色', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (297, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 17:11:38', '查询', '用户', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (298, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 17:11:39', '查询', '角色', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (299, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 17:11:40', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (300, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 17:11:40', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (301, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'admin', '2020-09-15 17:11:43', '查询', '用户', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (302, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:30:34', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (303, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:32:47', '新增', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (304, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:34:07', '新增', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (305, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:34:16', '更新', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (306, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:34:16', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (307, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:35:09', '新增', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (308, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:37:16', '新增', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (309, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:39:26', '新增', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (310, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:40:12', '查询', '用户', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (311, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:40:12', '查询', '角色', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (312, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:40:15', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (313, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:40:20', '更新', '角色', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (314, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:40:23', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (315, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:40:32', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (316, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:40:37', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (317, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:40:45', '更新', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (318, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:40:45', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (319, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:40:49', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (320, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:42:08', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (321, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:44:05', '新增', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (322, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:44:13', '更新', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (323, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:44:13', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (324, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:45:50', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (325, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:46:24', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (326, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:47:02', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (327, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:47:17', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (328, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:47:26', '更新', '角色', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (329, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:47:31', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (330, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:47:33', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (331, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:49:38', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (332, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:50:41', '新增', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (333, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:50:45', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (334, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:50:48', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (335, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:51:01', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (336, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:51:05', '更新', '角色', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (337, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:51:09', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (338, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:51:13', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (339, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:51:20', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (340, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:51:24', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (341, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:53:29', '新增', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (342, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:54:55', '新增', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (343, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:55:07', '查询', '模块', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (344, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-15 17:55:11', '更新', '角色', '::ffff:192.168.12.245');
-INSERT INTO `base_tp_log` VALUES (345, '', '', '2020-09-22 14:03:14', NULL, '', '');
-INSERT INTO `base_tp_log` VALUES (346, '', '', '2020-09-22 14:06:13', NULL, '', '');
+INSERT INTO `base_tp_log` VALUES (267, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-28 15:25:39', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (268, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-28 15:25:43', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (269, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-28 15:26:27', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (270, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-28 15:28:13', '新增', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (271, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-28 15:28:34', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (272, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-28 15:28:58', '新增', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (273, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-28 15:29:03', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (274, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-28 15:29:10', '更新', '角色', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (275, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-28 15:29:13', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (276, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-28 15:30:20', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (277, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-09-28 15:42:27', '查询', '角色', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (278, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-09 14:47:20', '查询', '游戏', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (279, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-09 14:50:08', '更新', '游戏', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (280, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-10 10:28:35', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (281, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-10 10:28:36', '查询', '用户', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (282, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-10 10:28:37', '查询', '角色', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (283, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-10 10:28:38', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (284, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-10 10:40:23', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (285, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-10 10:40:25', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (286, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-10 10:40:31', '查询', '用户', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (287, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-10 10:40:31', '查询', '角色', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (288, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-10 10:40:35', '查询', '游戏', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (289, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 10:56:53', '查询', '游戏', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (290, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 10:57:13', '更新', '游戏', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (291, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 10:57:26', '更新', '游戏', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (292, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 10:57:38', '更新', '游戏', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (293, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 19:45:23', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (294, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 19:45:47', '更新', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (295, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 19:45:47', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (296, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 19:45:51', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (297, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 19:45:55', '查询', '用户', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (298, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 19:46:26', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (299, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 19:48:33', '查询', '配置文件', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (300, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-19 19:50:13', '查询', '配置文件', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (301, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-20 11:45:11', '查询', '用户', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (302, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-20 11:46:06', '查询', '用户', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (303, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-20 11:46:18', '查询', '配置文件', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (304, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-20 11:47:00', '查询', '配置文件', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (305, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-20 11:51:56', '查询', '配置文件', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (306, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-20 11:53:08', '查询', '用户', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (307, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-20 17:13:47', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (308, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-20 17:13:52', '查询', '模块', '127.0.0.1');
+INSERT INTO `base_tp_log` VALUES (309, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-21 10:31:47', '查询', '配置文件', '192.168.12.245');
+INSERT INTO `base_tp_log` VALUES (310, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-21 10:32:04', '查询', '用户', '192.168.12.245');
+INSERT INTO `base_tp_log` VALUES (311, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-21 10:32:06', '查询', '配置文件', '192.168.12.245');
+INSERT INTO `base_tp_log` VALUES (312, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-21 10:33:00', '查询', '配置文件', '192.168.12.245');
+INSERT INTO `base_tp_log` VALUES (313, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-21 11:18:14', '查询', '配置文件', '192.168.12.245');
+INSERT INTO `base_tp_log` VALUES (314, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-21 11:21:37', '更新', '配置文件', '192.168.12.245');
+INSERT INTO `base_tp_log` VALUES (315, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-21 11:24:59', '更新', '配置文件', '192.168.12.245');
+INSERT INTO `base_tp_log` VALUES (316, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-21 11:30:50', '查询', '配置文件', '192.168.12.245');
+INSERT INTO `base_tp_log` VALUES (317, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-21 16:34:27', '查询', '游戏', '192.168.12.245');
+INSERT INTO `base_tp_log` VALUES (318, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-21 16:54:36', '查询', '配置文件', '192.168.12.245');
+INSERT INTO `base_tp_log` VALUES (319, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-21 16:55:31', '查询', '配置文件', '192.168.12.245');
+INSERT INTO `base_tp_log` VALUES (320, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', 'Administrator', '2020-10-28 11:24:08', '查询', '配置文件', '192.168.12.245');
 
 -- ----------------------------
 -- Table structure for base_user
@@ -516,7 +503,7 @@ CREATE TABLE `base_user`  (
 -- ----------------------------
 -- Records of base_user
 -- ----------------------------
-INSERT INTO `base_user` VALUES ('135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1', 'Administrator', 'e4cffb4cdc16bed9bb79a9ef7e7bc38b', 0, 'kt7s2q8o01m.jpg', 'wanghaonetcn@Gmail.com', '管理员', '2020-09-22 11:32:55', '2020-09-04 17:40:53', '1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1');
+INSERT INTO `base_user` VALUES ('135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '1', 'Administrator', 'e4cffb4cdc16bed9bb79a9ef7e7bc38b', 0, 'mv9a7hyk8l.jpg', 'wanghaonetcn@Gmail.com', '管理员', '2020-09-28 14:50:21', '2020-09-04 17:40:53', '1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1');
 INSERT INTO `base_user` VALUES ('1ed269f3-bcbf-4821-b977-72ec0c44661b', 'b6363d60-71aa-4489-b784-4effa01dffd2', '666666', '1111111', 1, 'http://192.168.12.245:9090/common/download/vpl88dgigj.jpg', NULL, '访客', '2020-09-08 20:26:17', '2020-09-08 20:27:50', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1');
 INSERT INTO `base_user` VALUES ('2c4e0df5-f5a5-416d-9ab4-70666cd458ac', '1', 'admin3', '11111111', 1, 'http://192.168.12.245:9090/common/download/vpl88dgigj.jpg', '3232df23@qq.com', NULL, '2020-09-08 20:26:27', '2020-09-08 20:26:45', NULL, '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1');
 INSERT INTO `base_user` VALUES ('38750ca5-bb7b-4647-8300-0bce3dd583b0', 'b6363d60-71aa-4489-b784-4effa01dffd2', '4444', '4444444', 1, 'http://192.168.12.245:9090/common/download/vpl88dgigj.jpg', NULL, NULL, '', '2020-09-08 20:27:51', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '');
@@ -534,6 +521,20 @@ INSERT INTO `base_user` VALUES ('ec9a3a12-3a1c-4ade-ae2b-e2e041223b41', 'b6363d6
 INSERT INTO `base_user` VALUES ('ed34fc52-c638-4249-88df-c437bda5daa6', 'b6363d60-71aa-4489-b784-4effa01dffd2', '666666', '666666', 1, 'http://192.168.12.245:9090/common/download/vpl88dgigj.jpg', NULL, NULL, '', '2020-09-08 20:27:59', '135e4f69-8e69-4dfc-a153-3fbaed1ee9c1', '');
 INSERT INTO `base_user` VALUES ('ed56c273-9e52-43e6-b2db-d87e1a4fcaef', 'b6363d60-71aa-4489-b784-4effa01dffd2', 'admin4', '111111', 1, 'http://192.168.12.245:9090/common/download/vpl88dgigj.jpg', '3df2dfa132df23@qq.com', NULL, NULL, '2020-09-08 20:28:00', NULL, NULL);
 INSERT INTO `base_user` VALUES ('f158a3f0-acc6-4521-920f-a0183bb39df1', '1a17e1ce-f877-46b3-a1ba-882ff1441ba0', 'admin2', '111111', 1, 'http://192.168.12.245:9090/common/download/vpl88dgigj.jpg', '2319512282@qq.com', NULL, NULL, '2020-09-08 20:28:01', NULL, NULL);
+
+-- ----------------------------
+-- Table structure for clt_log
+-- ----------------------------
+DROP TABLE IF EXISTS `clt_log`;
+CREATE TABLE `clt_log`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `gameId` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `openId` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `evtId` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `p1` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `p2` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for mod_role
@@ -588,16 +589,8 @@ INSERT INTO `mod_role` VALUES ('da56785c-0d7c-4735-be21-5d7f69009372', 'b6363d60
 INSERT INTO `mod_role` VALUES ('b0158ff5-642d-4547-8a2d-d957ac029032', 'b6363d60-71aa-4489-b784-4effa01dffd2');
 INSERT INTO `mod_role` VALUES ('bf2265b6-317f-4108-8d50-a8046b3718d0', 'b6363d60-71aa-4489-b784-4effa01dffd2');
 INSERT INTO `mod_role` VALUES ('0a9814f6-b448-4bf5-998d-46d82dff5ae1', '1');
-INSERT INTO `mod_role` VALUES ('3981b013-9023-424d-b15c-952ac0ef3d53', '1');
-INSERT INTO `mod_role` VALUES ('b841a791-5512-43a4-91ba-8945ddd82e2f', '1');
-INSERT INTO `mod_role` VALUES ('23697681-b0f7-4505-b72b-d97bf400e852', '1');
-INSERT INTO `mod_role` VALUES ('edb0c55d-84bf-43bf-a5bf-c901a1c7924d', '1');
-INSERT INTO `mod_role` VALUES ('f67e0f47-de4f-4878-aa1e-1a6e4feb754f', '1');
-INSERT INTO `mod_role` VALUES ('a5f1aeff-1c0d-4738-bd07-c14f5882e02e', '1');
-INSERT INTO `mod_role` VALUES ('afac9d03-d6c5-4173-ac57-fc60458a83d2', '1');
-INSERT INTO `mod_role` VALUES ('1d1241e1-13af-47e9-9bfc-4d16fb0ebeeb', '1');
-INSERT INTO `mod_role` VALUES ('756b87d3-9ec4-46fd-b64f-0c7862eb811e', '1');
-INSERT INTO `mod_role` VALUES ('267c847b-764b-4908-adbe-7d71ade036d0', '1');
+INSERT INTO `mod_role` VALUES ('724ebb37-2d68-4fe9-b4dd-479c61607a53', '1');
+INSERT INTO `mod_role` VALUES ('14b25a1f-8a96-4d41-94ec-28b40d4a5f2d', '1');
 
 -- ----------------------------
 -- Procedure structure for proc_games

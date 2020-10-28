@@ -9,11 +9,8 @@
 export const getLimiterConfig = (id: any, redis: any) => {
     // 定义返回体
     const body = {
-        "status": 200,
-        "data": {
             "code": 429,
             "msg": "操作失败!,请求次数过快!"
-        },
     };
 
     return {
