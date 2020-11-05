@@ -23,8 +23,9 @@ export default class GameController extends Controller {
     @Get("/cfg")
     public async getCfgs(ctx: Context) {
         await Validate.verifyAuth(ctx, "cfg");
-
-        const data = await this.service.cfgService.getCfgs();
+        const gameId: string = ctx.params.gameId;
+        Validate.isFlexValid(gameId);
+        const data = await this.service.cfgService.getCfgs(gameId);
 
         return ctx.body = ReturnResult.successData(data);
     }

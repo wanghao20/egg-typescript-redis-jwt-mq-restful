@@ -18,9 +18,9 @@ import { TokenConfig, Paging } from "../format/Type";
 import { DateFormat } from "../utils/DateFormat";
 import { VerifyException } from "../utils/Exceptions";
 import { MysqlDatabase } from '../utils/dataBase/MysqlDatabase';
+import BaseMod from '../entity/mysql/auth/BaseMod';
 import  BaseRole  from "../entity/mysql/auth/BaseRole";
 import  BaseUser  from "../entity/mysql/auth/BaseUser";
-import BaseMod from '../entity/mysql/auth/BaseMod';
 /**
  * Created by wh on 2020/7/15
  * author: wanghao
@@ -190,12 +190,14 @@ export default class AccountService extends Service {
      */
     public async update(user: BaseUser) {
         // 验证用户名
-        const userVname = await this.ctx.repo.mysql.auth.BaseUser.findOne({ "name": user.name, "isDelete": 0 });
-        if (userVname.name !== user.name) {
+        const userVerify = await this.ctx.repo.mysql.auth.BaseUser.findOne({ "name": user.name, "isDelete": 0 });
+        if (userVerify.name !== user.name) {
             throw new VerifyException(StaticStr.INSERT_ERR_MSG, StaticStr.ERR_CODE_DEFAULT);
         }
         user.updatedTime = DateFormat.dateFormat(Date.now());
-        user.password = this.genPassword(user.password);
+        if(user.password!==undefined){
+            user.password = this.genPassword(user.password);
+        }
         const data: any = await this.ctx.repo.mysql.auth.BaseUser.save(user);
 
         return data;

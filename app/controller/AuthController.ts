@@ -81,7 +81,7 @@ export default class AuthController extends Controller {
         await Validate.verifyAuth(ctx, "user");
         const user: BaseUser = ctx.params;
         user.updatedBy = ctx.user.id;
-        Validate.user(user.name, user.password);
+        Validate.isFlexValid(user.name);
         const users = await this.service.accountService.update(user);
 
         return ctx.body = ReturnResult.successData(users);

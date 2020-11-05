@@ -45,6 +45,7 @@ export default class Cfg {
     /**
      * 游戏gameId
      */
+    @Column()
     public gameId: string;;
 
     /**

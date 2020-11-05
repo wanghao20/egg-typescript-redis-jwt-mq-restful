@@ -2,7 +2,7 @@
   {
     "idx": "1",
     "id": "BaoXiang",
-    "num": 11111110,
+    "num": 110,
     "rate": 5,
     "amount_rate": 0
   },
@@ -16,7 +16,7 @@
   {
     "idx": "3",
     "id": "YuanBao",
-    "num": 100,
+    "num": 1100,
     "rate": 10,
     "amount_rate": 0
   },

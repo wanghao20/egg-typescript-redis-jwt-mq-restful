@@ -11,7 +11,7 @@ export const SECRET_KEY = "#2020/9/9_";
 /**
  * 配置文件加密密钥
  */
-export const CFG_KEY = "#2020/10/28_";
+export const CFG_KEY = "#2020/10/28_Put_Your_Password_Here";
 // 设置10小时过期时间
 export const JWT_EXP: number = 600 * 60;// 过期时间
 // 路由配置

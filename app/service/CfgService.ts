@@ -6,12 +6,12 @@ import { Service } from 'egg';
 
 import path = require("path");
 
+import { CFG_KEY } from '../config/Constants';
 import { StaticStr } from '../config/StaticStr';
 import { DateFormat } from "../utils/DateFormat";
 import { VerifyException } from '../utils/Exceptions';
-import Cfg from '../entity/mongo/Cfg';
-import { CFG_KEY } from '../config/Constants';
 import { encryption } from '../utils/encryption';
+import Cfg from '../entity/mongo/Cfg';
 /**
  * Created by wh on 2020/7/15
  * author: wanghao
@@ -21,8 +21,8 @@ export default class CfgService extends Service {
     /**
        * 获取配置列表不分页
        */
-    public async getCfgs() {
-        const data: Array<Cfg> = await this.ctx.repo.mongodb.Cfg.find({ state: 1, isDelete: 0 });
+    public async getCfgs(gameId: string) {
+        const data: Array<Cfg> = await this.ctx.repo.mongodb.Cfg.find({ gameId: gameId, state: 1, isDelete: 0 });
         return data;
     }
     /**
@@ -59,7 +59,12 @@ export default class CfgService extends Service {
         cfg.updatedTime = DateFormat.dateFormat(Date.now());
         cfg.isDelete = 1;
         const data: any = await this.ctx.repo.mongodb.Cfg.update(String(cfg.id), cfg);
-
+        const list: Array<Cfg> = await this.ctx.repo.mongodb.Cfg.find({ cfgId: cfg.cfgId, isDelete: 0 });
+        list.forEach(async (v: Cfg) => {
+            v.updatedTime = DateFormat.dateFormat(Date.now());
+            v.isDelete = 1;
+            await this.ctx.repo.mongodb.Cfg.update(String(v.id), v);
+        });
         return data;
     }
     /**
@@ -96,32 +101,31 @@ export default class CfgService extends Service {
             //把data对象转换为json格式字符串
             content = cfg.body;
             //指定创建目录及文件名称，__dirname为执行当前文件的目录
-            filePath = path.resolve(__dirname, `../../public/servecfgFile/${cfg.gameId}/${cfg.cfgName}.json`);
+            filePath = path.resolve(__dirname, `../../public/servecfgFile/${cfg.gameId}/${cfg.cfgName}.json`)
         } else {
             // 客户端配置
             filePath = path.resolve(__dirname, `../../public/clientCfgFile/${cfg.gameId}/${cfg.cfgName}.json`);
-
+            content = JSON.stringify(cfg.body)
             // 判断是否压缩合并
             if (cfg.merge === 1) {
                 // 是:拿到对应的gameid所有配置
-                const data: Array<Cfg> = await this.ctx.repo.mongodb.Cfg.find({ state: 1, isDelete: 0, gameId: cfg.gameId });
+                const data: Array<Cfg> = await this.ctx.repo.mongodb.Cfg.find({ type: cfg.type, state: 1, isDelete: 0, gameId: cfg.gameId });
                 content = {}
                 data.forEach(async (element: Cfg) => {
                     content[element.cfgName] = JSON.parse(element.body);
                 });
                 // 文件内容:{配置名称1:配置值1,配置名称2:配置值2}
-                content = JSON.stringify(content)
                 filePath = path.resolve(__dirname, `../../public/clientCfgFile/${cfg.gameId}/all_cfgs.txt`);
-
+                content = JSON.stringify(content)
             }
             // 判断是否加密
             if (cfg.encryption === 1) {
-                content = encryption.aesEncrypt(content,CFG_KEY)
+                content = encryption.aesEncrypt(content, CFG_KEY)
             }
         }
         try {
             //写入文件
-            fs.writeFile(filePath, content, function (err) {
+            fs.writeFile(filePath, content, async (err: any) => {
                 if (err) {
                     return console.log(err);
                 }
