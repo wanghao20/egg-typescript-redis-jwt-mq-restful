@@ -38,8 +38,8 @@ export const emailCfg = {
     "secureConnection": true, // 使用 SSL
     "port": 465, // SMTP 端口
     "auth": {
-        "user": "506255207@qq.com", // generated ethereal user
-        "pass": "bmblrdabbwkebjgh", // generated ethereal password
+        "user": "0@qq.com", // generated ethereal user
+        "pass": "0", // generated ethereal password
     },
 };
 export const sendMailCfg = (email: string, code: string) => {
